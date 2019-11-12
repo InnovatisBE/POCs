@@ -37,12 +37,6 @@ namespace SwaggerAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save()
-        {
-            return Ok();
-        }
-
-        [HttpPost]
         public IActionResult Save([FromBody]WeatherForecast weatherForecast)
         {
             return Ok();
