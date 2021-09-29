@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Microsoft.OpenApi.Models;
+using SwaggerAPI.Data;
+using System.Reflection;
 
 namespace SwaggerAPI
 {
@@ -21,6 +23,8 @@ namespace SwaggerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<SwaggerContext>(ServiceLifetime.Singleton);
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
